@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+docker run -it --rm -v (realpath .)/workspace:/workspace -v (realpath .)/BBDown.data:/usr/bin/BBDown.data bilibili $argv
