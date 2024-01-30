@@ -1,10 +1,7 @@
-FROM alpine
+FROM mcr.microsoft.com/dotnet/runtime
 ARG TARGETPLATFORM
 
-RUN apk update && apk add --no-cache aria2 ffmpeg wget bash
-
-RUN wget https://dot.net/v1/dotnet-install.sh -O - | bash
-
+RUN apt update && apt install -y aria2 ffmpeg wget bash
 COPY ${TARGETPLATFORM} /usr/bin/BBDown
 
 ENTRYPOINT ["/usr/bin/BBDown", "--work-dir", "/workspace"]
